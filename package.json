@@ -1,0 +1,39 @@
+{
+  "name": "stonex-planning-navigator",
+  "description": "StoneX global financial product campaign planning navigator",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.7.0",
+  "scripts": {
+    "dev": "concurrently -k -n db,storage,api,web -c gray,yellow,cyan,magenta \"pnpm db:dev\" \"pnpm storage:dev\" \"pnpm dev:api\" \"pnpm dev:web\"",
+    "db:dev": "node scripts/db-dev.mjs",
+    "storage:dev": "node scripts/storage-dev.mjs",
+    "dev:web": "vite --host 0.0.0.0",
+    "dev:api": "tsx watch src/server/index.ts",
+    "build": "tsc -p tsconfig.server.json && vite build",
+    "start": "node dist/server/index.js",
+    "check": "biome check . && tsc --noEmit",
+    "lint": "biome check .",
+    "format": "biome check --write ."
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1070.0",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.0",
+    "@electric-sql/pglite": "0.5.3",
+    "@electric-sql/pglite-socket": "0.2.4",
+    "@types/express": "^5.0.6",
+    "@types/node": "^24.13.6",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^6.0.2",
+    "concurrently": "10.0.3",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.16"
+  }
+}

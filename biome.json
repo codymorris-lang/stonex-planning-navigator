@@ -1,0 +1,8 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.5.0/schema.json",
+  "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
+  "files": { "ignoreUnknown": true },
+  "formatter": { "enabled": true, "indentStyle": "space", "indentWidth": 2 },
+  "linter": {\n    "enabled": true,\n    "rules": {\n      "preset": "recommended\",\n      \"a11y/noStaticElementInteractions\": \"warn\",\n      \"a11y/useKeyWithClickEvents\": \"warn\",\n      \"style/noNonNullAssertion\": \"warn\"\n    }\n  },
+  "javascript": { "formatter": { "quoteStyle": "double" } }
+}
